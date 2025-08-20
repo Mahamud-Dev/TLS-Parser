@@ -2,12 +2,16 @@ import pyshark
 import os
 import csv 
 
-path_to_file = os.path.join('..', 'pcaps', 'normal_traffic2.pcapng')
-csv_path = os.path.join('..'  , 'tls_metadata.csv')
 
-# Start capture (no filter for now – add 'display_filter="tls"' later once stable)
-tls_packets = pyshark.FileCapture(path_to_file, display_filter='tls')
-tls_packets.set_debug()          # Remove or comment out when you no longer need verbose logs
+interface = 'eth0'  # or 'wlan0' depending on your system
+csv_path = 'tls_metadata.csv'
+
+
+
+
+
+tls_packets = pyshark.LiveCapture(interface=interface, display_filter='tls')
+
 
 with open(csv_path, 'w', newline='') as f:
     writer = csv.writer(f)
