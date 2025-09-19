@@ -36,3 +36,20 @@ cd TLS-Parser
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+
+
+### 🔹 Windows (PowerShell)  
+```powershell
+# 1. Clone the repo
+git clone https://github.com/Mahamud-Dev/TLS-Parser.git
+cd TLS-Parser
+
+# 2. Create and activate venv
+python -m venv venv
+.\venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Run parser on a sample pcap
+python tls_parser.py sample.pcap
